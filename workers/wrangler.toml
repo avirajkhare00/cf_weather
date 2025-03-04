@@ -5,3 +5,8 @@ compatibility_date = "2023-05-18"
 # Configure for Cloudflare Pages deployment
 [site]
 bucket = "../" # Path to the directory containing your static assets (relative to worker)
+
+# Environment variables configuration
+[vars]
+# OPENWEATHER_API_KEY will be populated during deployment
+

@@ -8,7 +8,7 @@
  */
 
 // OpenWeatherMap API configuration
-const OPENWEATHER_API_KEY = 'YOUR_OPENWEATHER_API_KEY'; // Replace with your actual API key
+// API key is accessed from environment variables
 const OPENWEATHER_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 // CORS headers for cross-origin requests
@@ -66,6 +66,8 @@ async function fetchWeatherData(city) {
  * Main request handler for the worker
  */
 async function handleRequest(request, env, ctx) {
+  // Get API key from environment variables
+  const OPENWEATHER_API_KEY = env.OPENWEATHER_API_KEY;
   // Handle CORS preflight requests
   if (request.method === 'OPTIONS') {
     return handleOptions();
