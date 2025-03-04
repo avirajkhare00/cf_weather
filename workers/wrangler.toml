@@ -6,9 +6,8 @@ compatibility_date = "2023-05-18"
 [site]
 bucket = "../" # Path to the directory containing your static assets (relative to worker)
 
-# Environment variables configuration
-[vars]
-# OPENWEATHER_API_KEY will be populated during deployment
+# API key is stored as a secret, not as an environment variable
+# Use `wrangler secret put OPENWEATHER_API_KEY` to set it
 
 # Worker will be deployed to https://weather-app.avirajkhare00.workers.dev
 # No custom routes needed for basic functionality

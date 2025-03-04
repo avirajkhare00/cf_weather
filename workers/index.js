@@ -49,8 +49,8 @@ function handleError(error) {
 /**
  * Fetch weather data from OpenWeatherMap API
  */
-async function fetchWeatherData(city) {
-  const url = `${OPENWEATHER_BASE_URL}?q=${encodeURIComponent(city)}&units=metric&appid=${OPENWEATHER_API_KEY}`;
+async function fetchWeatherData(city, apiKey) {
+  const url = `${OPENWEATHER_BASE_URL}?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;
   
   const response = await fetch(url);
   
@@ -83,7 +83,7 @@ async function handleRequest(request, env, ctx) {
     }
     
     // Fetch weather data for the detected city
-    const weatherData = await fetchWeatherData(city);
+    const weatherData = await fetchWeatherData(city, OPENWEATHER_API_KEY);
     
     // Return the weather data as JSON
     return new Response(JSON.stringify(weatherData), {

@@ -30,10 +30,10 @@ jobs:
       - name: Deploy Worker
         working-directory: ./workers
         run: |
-          # Set the OpenWeather API key in wrangler.toml
-          wrangler secret put OPENWEATHER_API_KEY --name weather-app <<< "$OPENWEATHER_API_KEY"
           # Deploy the worker
           wrangler deploy
+          # Set the OpenWeather API key as a secret
+          wrangler secret put OPENWEATHER_API_KEY <<< "$OPENWEATHER_API_KEY"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
