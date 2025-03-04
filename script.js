@@ -56,7 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setLoading(true);
         
         try {
-            const response = await fetch('/api/weather');
+            // Determine the API URL based on the environment
+            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+                ? 'https://weather-app-vux.pages.dev/' // Development - direct to worker
+                : '/api/weather'; // Production - assuming worker is at /api/weather route
+            
+            const response = await fetch(apiUrl);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);

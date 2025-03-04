@@ -34,6 +34,8 @@ jobs:
           wrangler secret put OPENWEATHER_API_KEY --name weather-app <<< "$OPENWEATHER_API_KEY"
           # Deploy the worker
           wrangler deploy
+          # Configure worker route for Cloudflare Pages (assuming you're using Pages Functions)
+          wrangler pages function create-route /api/weather weather-app --project-name=weather-app
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

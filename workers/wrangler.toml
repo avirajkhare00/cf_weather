@@ -10,3 +10,15 @@ bucket = "../" # Path to the directory containing your static assets (relative t
 [vars]
 # OPENWEATHER_API_KEY will be populated during deployment
 
+# Routes configuration
+# For Cloudflare Pages integration with Workers
+
+# Option 1: If using Workers for Platforms (recommended)
+# This allows your worker to be accessed at /api/* on your Cloudflare Pages domain
+# Uncomment and configure in wrangler.toml or use wrangler cli commands
+
+# Option 2: If using a custom domain
+# [[routes]]
+# pattern = "your-domain.com/api/weather*"
+# zone_name = "your-domain.com"
+
