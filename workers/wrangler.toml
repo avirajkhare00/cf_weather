@@ -2,17 +2,6 @@ name = "weather-app"
 main = "index.js"
 compatibility_date = "2023-05-18"
 
-# Define the route for the API endpoint
-routes = [
-  { pattern = "/api/weather" }
-]
-
 # Configure for Cloudflare Pages deployment
 [site]
 bucket = "../" # Path to the directory containing your static assets (relative to worker)
-
-# Configure custom domain (optional, will use *.pages.dev by default)
-# [env.production]
-# routes = [
-#   { pattern = "https://weather-app.pages.dev/*" }
-# ]
