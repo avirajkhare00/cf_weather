@@ -56,10 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setLoading(true);
         
         try {
-            // Determine the API URL based on the environment
-            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-                ? 'https://weather-app-vux.pages.dev/' // Development - direct to worker
-                : '/api/weather'; // Production - assuming worker is at /api/weather route
+            const apiUrl = 'https://weather-app.avirajkhare00.workers.dev';
             
             const response = await fetch(apiUrl);
             
