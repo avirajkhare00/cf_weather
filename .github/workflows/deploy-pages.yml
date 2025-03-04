@@ -32,3 +32,4 @@ jobs:
           projectName: weather-app
           directory: .
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          createIfMissing: true
